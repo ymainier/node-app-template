@@ -1,7 +1,7 @@
 # Project conventions
 
 ## Runtime
-- Scripts are executed with `tsx` (not compiled to JS)
+- Scripts are executed with `node --strip-types` (not compiled to JS)
 - `noEmit: true` in tsconfig is intentional — no build step
 
 ## Scripts
@@ -17,3 +17,9 @@
 
 ## Package manager
 - Use `pnpm` exclusively
+
+## After making changes
+After any change to source files or tooling configs (tsconfig, eslint, vite, package.json, etc.), always run:
+```
+pnpm typecheck && pnpm lint && pnpm test
+```
